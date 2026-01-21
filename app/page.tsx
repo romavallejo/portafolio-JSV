@@ -1,30 +1,35 @@
-import EventsGrid from "@/components/EventsGrid";
 import Link from 'next/link'
-
+import Image from 'next/image';
+import EventsGrid from "@/components/EventsGrid"
+import TextHighlight from '@/components/TextHighlight';
 
 export default function LandingPage() {
   return (
     <>
 
-      <div className="flex justify-evenly items-center p-16 bg-background-alt">
-        <div className="bg-red-light p-4 w-1/3">
-          Image Holder
+      <div className="flex flex-col md:flex-row justify-evenly items-center gap-8 p-14 bg-background-alt min-h-[calc(100vh-86px)]">
+
+        <div className="bg-red-light p-4">
+          <Image
+            src={'/images/2/2_0.jpg'} //LINK OF MAIN IMAGE GOES HERE :D
+            width={700}
+            height={700}
+            alt="Imagen de evento"
+          />
         </div>
-        <div className="text-right w-1/2">
-          <h1 className="text-6xl font-bold uppercase">Construyendo <br/> grandes proyectos</h1>
-          <h3 className="text-4xl italic">Jimena Santillana Vallejo</h3>
+
+        <div className="text-center md:text-right">
+          <h1 className="text-4xl lg:text-6xl font-bold uppercase">Construyendo <br/> grandes proyectos</h1>
+          <h3 className="text-2xl lg:text-4xl italic">Jimena Santillana Vallejo</h3>
         </div>
+
       </div>
 
-      <div className="flex flex-col gap-5 p-12">
-        <h1 className="text-2xl font-bold">Eventos</h1>
-        <EventsGrid>
-
-        </EventsGrid>
-        <div className="flex justify-center">
-          <p className='text-background bg-red-light p-2 rounded-xl'><Link href={"/events"}>Más Eventos...</Link></p>
-        </div>
+      <EventsGrid highlightPage={true}/>
+      <div className="flex justify-center pb-12">
+        <Link href={"/events"}><TextHighlight>Más Eventos...</TextHighlight></Link>
       </div>
+
     </>
   );
 }
