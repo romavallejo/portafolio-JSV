@@ -1,13 +1,12 @@
 'use client'
-import { div } from "motion/react-client";
-import { image } from "motion/react-m";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import TextHighlight from '@/components/TextHighlight';
-
+import { eventSummaries } from '../data/eventsSummary'
+import { motion, AnimatePresence } from "framer-motion";
 
 interface CarouselProps {
-    images: string[]
+    images: number[],
 }
 
 const Carousel = ({ images }: CarouselProps) => {
@@ -15,18 +14,15 @@ const Carousel = ({ images }: CarouselProps) => {
     if (!images || images.length === 0)
         return <div>No images available</div>;
     
-    const start = 0;
-    const end = images.length - 1;
-    const imagsLen = images.length;
-
-    const [imageIndex,setImageIndex] = useState(start);
+    const [imageIndex,setImageIndex] = useState(0);
     const[isActive,setIsActive] = useState(true);
+    const total = images.length;
 
     useEffect(()=>{
         if (!isActive) return;
         const intervalId = setInterval(() => {
-            setImageIndex(prevIndex => prevIndex+1 > end ? start : prevIndex+1);
-        },10000);
+            setImageIndex(i => (i+1) % total);
+        },8000);
         return () => clearInterval(intervalId);
     },[isActive, imageIndex]);
 
@@ -35,14 +31,14 @@ const Carousel = ({ images }: CarouselProps) => {
             <div className="flex flex-col">
                 <Image
                     className="hover:cursor-pointer"
-                    src={images[imageIndex]}
+                    src={eventSummaries[images[imageIndex]].image}
                     width={900}
                     height={900}
-                    alt="Imagen de evento"
+                    alt={eventSummaries[images[imageIndex]].name}
                     onClick={()=>setIsActive(false)}
                 />
                 <div className="flex justify-center items-center gap-3 pt-4">
-                    {Array.from({length: imagsLen}, (_,index) => 
+                    {Array.from({length: total}, (_,index) => 
                         index == imageIndex ? 
                         <div 
                             key={index} 
@@ -68,8 +64,8 @@ const Carousel = ({ images }: CarouselProps) => {
                     </button>
                     <div className="relative w-[85vw] h-[85vh] max-w-[95vw] max-h-[85vh]">
                         <Image
-                            src={images[imageIndex]}
-                            alt="Imagen de evento"
+                            src={eventSummaries[images[imageIndex]].image}
+                            alt={eventSummaries[images[imageIndex]].name}
                             fill
                             style={{ objectFit: 'contain' }}
                         />

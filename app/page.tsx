@@ -16,7 +16,7 @@ export default function LandingPage() {
             height={700}
             alt="Imagen de evento"
           />*/}
-          <Carousel images={["/images/0/0_0.jpg","/images/1/1_0.jpg","/images/2/2_0.jpg"]}/>
+          <Carousel images={[0,1,2]}/>
         </div>
 
         <div className="text-center md:text-right">
