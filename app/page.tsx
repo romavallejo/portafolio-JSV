@@ -9,14 +9,8 @@ export default function LandingPage() {
     <>
       <div className="flex flex-col md:flex-row justify-evenly items-center gap-8 p-14 bg-background-alt min-h-[calc(100vh-86px)]">
         
-        <div className="bg-red-light p-4">
-          {/*<Image
-            src={'/images/2/2_0.jpg'} //LINK OF MAIN IMAGE GOES HERE :D
-            width={700}
-            height={700}
-            alt="Imagen de evento"
-          />*/}
-          <Carousel images={[0,1,2]}/>
+        <div className=" flex bg-red-light p-4 flex-1 max-w-[900px]">
+          <Carousel images={[2,1,3]}/>
         </div>
 
         <div className="text-center md:text-right">

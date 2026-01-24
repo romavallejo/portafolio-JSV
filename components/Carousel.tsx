@@ -24,54 +24,90 @@ const Carousel = ({ images }: CarouselProps) => {
             setImageIndex(i => (i+1) % total);
         },8000);
         return () => clearInterval(intervalId);
-    },[isActive, imageIndex]);
+    },[isActive, total]);
 
     return (
         <>
-            <div className="flex flex-col">
-                <Image
-                    className="hover:cursor-pointer"
-                    src={eventSummaries[images[imageIndex]].image}
-                    width={900}
-                    height={900}
-                    alt={eventSummaries[images[imageIndex]].name}
-                    onClick={()=>setIsActive(false)}
-                />
-                <div className="flex justify-center items-center gap-3 pt-4">
-                    {Array.from({length: total}, (_,index) => 
-                        index == imageIndex ? 
-                        <div 
-                            key={index} 
-                            className="h-3 w-3 bg-background rounded-2xl hover:cursor-pointer"
-                            onClick={()=>setImageIndex(index)}
-                        /> : 
-                        <div 
-                            key={index} 
-                            className="h-3 w-3 bg-red rounded-2xl hover:cursor-pointer"
-                            onClick={()=>setImageIndex(index)}
-                        />
-                    )}
-                </div>
-            </div>
+            {/* CAROUSEL HOLDER */}
+            <div className="flex flex-col items-center w-full">
 
-            {!isActive &&
-                <div className="fixed top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center gap-4 bg-black/75 backdrop-blur-xs p-16 z-100">
-                    <button 
-                        className="self-start"
-                        onClick={()=>setIsActive(true)}
-                    >
-                        <TextHighlight>x</TextHighlight>
-                    </button>
-                    <div className="relative w-[85vw] h-[85vh] max-w-[95vw] max-h-[85vh]">
+                {/* IMAGE HOLDER 
+                    <Image
+                        className="hover:cursor-pointer"
+                        src={eventSummaries[images[imageIndex]].image}
+                        width={900}
+                        height={900}
+                        alt={eventSummaries[images[imageIndex]].name}
+                        onClick={()=>setIsActive(false)}
+                    />
+                */}
+                <div className="relative w-full max-w-[900px] aspect-[16/9] overflow-hidden">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={imageIndex}
+                            initial={{ opacity: 0, x: 40 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -40 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            className="absolute inset-0"
+                        >
                         <Image
                             src={eventSummaries[images[imageIndex]].image}
                             alt={eventSummaries[images[imageIndex]].name}
                             fill
-                            style={{ objectFit: 'contain' }}
+                            className="object-cover"
+                            onClick={() => setIsActive(false)}
+                            priority
                         />
-                    </div>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
-            }
+
+                {/* DOT INDICATORS */ }
+                <div className="flex gap-3 pt-4">
+                    {Array.from({length: total}, (_,index) => 
+                        <motion.div 
+                            key={index} 
+                            className="h-3 w-3 bg-background rounded-2xl hover:cursor-pointer"
+                            onClick={()=>setImageIndex(index)}
+                            animate={{
+                                scale: index === imageIndex ? 1.4 : 1,
+                                opacity: index === imageIndex ? 1 : 0.4
+                            }}
+                            transition={{ duration: 0.25 }}
+                            style={{ background: "white" }}
+                        /> 
+                    )}
+
+                </div>
+            </div>
+
+            {/* FULLSCREEN MODAL FOR IMAGE */}
+            <AnimatePresence>
+                {!isActive &&
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 flex flex-col justify-center items-center gap-4 bg-black/75 backdrop-blur-xs p-16 z-100"
+                    >
+                        <button 
+                            className="self-start"
+                            onClick={()=>setIsActive(true)}
+                        >
+                            <TextHighlight>x</TextHighlight>
+                        </button>
+                        <div className="relative w-[85vw] h-[85vh] max-w-[95vw] max-h-[85vh]">
+                            <Image
+                                src={eventSummaries[images[imageIndex]].image}
+                                alt={eventSummaries[images[imageIndex]].name}
+                                fill
+                                style={{ objectFit: 'contain' }}
+                            />
+                        </div>
+                    </motion.div>
+                }
+            </AnimatePresence>
         </>
     );
 };
