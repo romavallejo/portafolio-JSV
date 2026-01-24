@@ -28,7 +28,7 @@ const EventCard = ({ id, name, image }: EventCardProps) => {
                         className="rounded-lg"
                     />
                 </div>
-                <p className="text-lg uppercase font-medium">{name}</p>
+                <p className="text-lg uppercase font-medium text-center">{name}</p>
             </motion.div>
         </Link>
     );

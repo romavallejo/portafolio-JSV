@@ -7,9 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface CarouselProps {
     images: number[],
+    changable: boolean,
 }
 
-const Carousel = ({ images }: CarouselProps) => {
+const Carousel = ({ images, changable }: CarouselProps) => {
 
     if (!images || images.length === 0)
         return <div>No images available</div>;
@@ -31,23 +32,14 @@ const Carousel = ({ images }: CarouselProps) => {
             {/* CAROUSEL HOLDER */}
             <div className="flex flex-col items-center w-full">
 
-                {/* IMAGE HOLDER 
-                    <Image
-                        className="hover:cursor-pointer"
-                        src={eventSummaries[images[imageIndex]].image}
-                        width={900}
-                        height={900}
-                        alt={eventSummaries[images[imageIndex]].name}
-                        onClick={()=>setIsActive(false)}
-                    />
-                */}
-                <div className="relative w-full max-w-[900px] aspect-[16/9] overflow-hidden">
+                {/* IMAGE HOLDER */}
+                <div className="relative w-full max-w-225 aspect-video overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={imageIndex}
-                            initial={{ opacity: 0, x: 40 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -40 }}
+                            initial={{ opacity: 0, }}
+                            animate={{ opacity: 1, }}
+                            exit={{ opacity: 0,  }}
                             transition={{ duration: 0.5, ease: "easeInOut" }}
                             className="absolute inset-0"
                         >
@@ -55,7 +47,7 @@ const Carousel = ({ images }: CarouselProps) => {
                             src={eventSummaries[images[imageIndex]].image}
                             alt={eventSummaries[images[imageIndex]].name}
                             fill
-                            className="object-cover"
+                            className="object-cover hover:cursor-pointer"
                             onClick={() => setIsActive(false)}
                             priority
                         />
@@ -64,7 +56,8 @@ const Carousel = ({ images }: CarouselProps) => {
                 </div>
 
                 {/* DOT INDICATORS */ }
-                <div className="flex gap-3 pt-4">
+                {changable && 
+                    <div className="flex gap-3 pt-3">
                     {Array.from({length: total}, (_,index) => 
                         <motion.div 
                             key={index} 
@@ -78,8 +71,8 @@ const Carousel = ({ images }: CarouselProps) => {
                             style={{ background: "white" }}
                         /> 
                     )}
-
                 </div>
+                }
             </div>
 
             {/* FULLSCREEN MODAL FOR IMAGE */}
