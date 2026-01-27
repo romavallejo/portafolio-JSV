@@ -18,5 +18,6 @@ export const eventSummaries: EventSummary[] = [
     {id: 9, name:"Press Day Dinner Experience", image: "/images/9/9_0.jpg"},
     {id: 10, name:"Takeover Palacio De hierro", image: ""},
     {id: 11, name:"Tramezza Experience", image: "/images/11/11_0.jpg"},
-    {id: 12, name:"Tramezza Dinner Experience", image: "/images/12/12_0.jpg"}
+    {id: 12, name:"Tramezza Dinner Experience", image: "/images/12/12_0.jpg"},
+    {id: 13, name:"Ferragamo Caffè", image: "/images/13/13_0.jpg"},
 ];

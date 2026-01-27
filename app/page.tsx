@@ -25,6 +25,7 @@ export default function LandingPage() {
       </div>
 
       <EventsGrid highlightPage={true}/>
+      
       <div className="flex justify-center pb-12">
         <Link href={"/events"}><TextHighlight>Más Eventos...</TextHighlight></Link>
       </div>
