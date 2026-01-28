@@ -1,10 +1,10 @@
 'use client'
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import TextHighlight from '@/components/TextHighlight';
+import { useEffect, useState, useRef } from "react";
 import { eventSummaries } from '../data/eventsSummary'
 import { motion, AnimatePresence } from "framer-motion";
-import { image } from "motion/react-client";
+import { AiFillCloseCircle, AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+
 
 interface CarouselProps {
     images: number[] | string[],
@@ -12,6 +12,15 @@ interface CarouselProps {
 }
 
 const Carousel = ({ images, changable }: CarouselProps) => {
+
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const startInterval = () => {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+
+        intervalRef.current = setInterval(() => {
+            setImageIndex(i => (i + 1) % total);
+        }, 8000);
+    };
 
     if (!images || images.length === 0)
         return <div>No images available</div>;
@@ -24,12 +33,17 @@ const Carousel = ({ images, changable }: CarouselProps) => {
     const[isActive,setIsActive] = useState(true);
     const total = images.length;
 
+    const switchImage = (index: number) => {
+        setImageIndex(index);
+        if (isActive) startInterval();
+    }
+
     useEffect(()=>{
         if (!isActive) return;
-        const intervalId = setInterval(() => {
-            setImageIndex(i => (i+1) % total);
-        },8000);
-        return () => clearInterval(intervalId);
+
+        startInterval();
+
+        return () => {if(intervalRef.current) clearInterval(intervalRef.current)};
     },[isActive, total]);
 
     return (
@@ -40,29 +54,29 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                 {/* IMAGE HOLDER */}
                 <div className="relative w-full max-w-225 aspect-13/9 overflow-hidden">
 
-                    {changable && 
+                    {(changable && isActive) && 
                         <>
                             <motion.button 
-                                className="text-merge text-4xl font-extrabold mask-r-from-30% absolute w-[10%] h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
+                                className="text-white text-4xl mask-r-to-100% absolute w-[10%] h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
                                 initial={{ opacity: 0 }}
                                 whileHover={{
                                     opacity: 1
                                 }}
                                 transition={{ duration: 0.25 }}
-                                onClick={()=>setImageIndex(imageIndex-1 < 0 ? total-1 : imageIndex-1)}
+                                onClick={()=>switchImage(imageIndex-1 < 0 ? total-1 : imageIndex-1)}
                             >
-                                &lt;
+                                <AiFillCaretLeft />
                             </motion.button>
                             <motion.button 
-                                className="text-merge text-4xl font-extrabold mask-l-from-30% absolute w-[10%] right-0 h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
+                                className="text-white text-4xl mask-l-to-100% absolute w-[10%] right-0 h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
                                 initial={{ opacity: 0 }}
                                 whileHover={{
                                     opacity: 1
                                 }}
                                 transition={{ duration: 0.25 }}
-                                onClick={()=>setImageIndex((imageIndex+1)%total)}
+                                onClick={()=>switchImage((imageIndex+1)%total)}
                             >
-                                &gt;
+                                <AiFillCaretRight />
                             </motion.button>
                         </>
                     }
@@ -98,7 +112,7 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                         <motion.div 
                             key={index} 
                             className="h-3 w-3 bg-background rounded-2xl hover:cursor-pointer"
-                            onClick={()=>setImageIndex(index)}
+                            onClick={()=>switchImage(index)}
                             animate={{
                                 scale: index === imageIndex ? 1.3 : 1,
                                 opacity: index === imageIndex ? 1 : 0.4
@@ -122,11 +136,12 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                     >
                         <motion.button
                             whileHover={{ scale: 1.3}} 
-                            className="bg-red-light self-end hover:cursor-pointer"
+                            className="self-end hover:cursor-pointer"
                             onClick={()=>setIsActive(true)}
                         >
-                            f
+                            <AiFillCloseCircle size={48} className="text-red-light"/>
                         </motion.button>
+
                         <div className="relative w-[85vw] h-[85vh] max-w-[95vw] max-h-[85vh]">
                             <Image
                                 src={usingNumbers ? 
@@ -137,6 +152,33 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                                 fill
                                 style={{ objectFit: 'contain' }}
                             />
+                            {/* BUTTONS FOR CHANGING IMAGES BIG SCREEN*/ }
+                            {changable && 
+                                <>
+                                    <motion.button 
+                                        className="text-white text-4xl mask-l-from-30% absolute w-[10%] h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
+                                        initial={{ opacity: 0 }}
+                                        whileHover={{
+                                            opacity: 1
+                                        }}
+                                        transition={{ duration: 0.25 }}
+                                        onClick={()=>switchImage(imageIndex-1 < 0 ? total-1 : imageIndex-1)}
+                                    >
+                                        <AiFillCaretLeft />
+                                    </motion.button>
+                                    <motion.button 
+                                        className="text-white text-4xl mask-l-from-30% absolute w-[10%] right-0 h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
+                                        initial={{ opacity: 0 }}
+                                        whileHover={{
+                                            opacity: 1
+                                        }}
+                                        transition={{ duration: 0.25 }}
+                                        onClick={()=>switchImage((imageIndex+1)%total)}
+                                    >
+                                        <AiFillCaretRight />
+                                    </motion.button>
+                                </>
+                            }
                         </div>
                     </motion.div>
                 }
