@@ -3,6 +3,7 @@ import { eventsData } from "@/data/eventData";
 import { colorMap } from "@/data/colorMap";
 import Carousel from "@/components/Carousel";
 import { DualTypewriter } from "@/components/DualTypewriter";
+import { Typewriter } from "@/components/Typewriter";
 
 export default async function eventInfo({params}: {params: Promise<{ id: string }>}) {
     const { id } = await params;
@@ -21,7 +22,7 @@ export default async function eventInfo({params}: {params: Promise<{ id: string 
         images.push(`/images/${event.id}/${event.id}_${i}.jpg`);
 
     return(
-        <div className="flex justify-evenly items-center gap-8 p-14 min-h-[calc(100vh-86px)]">
+        <div className={"flex justify-evenly items-center gap-8 p-14 min-h-[calc(100vh-86px)] " + (event.id % 2 != 0 ? "flex-row-reverse" : "")}>
             <div 
                 className={"flex justify-center flex-1 p-6 "+ colorMap[event.color].bg}
             >
@@ -37,11 +38,13 @@ export default async function eventInfo({params}: {params: Promise<{ id: string 
                     bottom={event.titleBottom}
                     colorTop={event.coloredTop}
                     color={colorMap[event.color].text ?? ""}
-                    className="uppercase font-bold text-4xl lg:text-6xl" 
+                    className={"uppercase font-bold text-4xl lg:text-6xl " + (event.id % 2 != 0 ? "text-right" : "")}
                 />
-                <p className="text-justify text-lg">
-                    {event.text}
-                </p>
+                <Typewriter 
+                    className={"text-lg " + (event.id % 2 != 0 ? "text-right" : "text-left")}
+                    text={event.text}
+                    speed={0.003}
+                />
             </div>
         </div>
     );

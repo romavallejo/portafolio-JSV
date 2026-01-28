@@ -1,6 +1,7 @@
 import EventsGrid from "@/components/EventsGrid";
 import Carousel from "@/components/Carousel";
 import { DualTypewriter } from "@/components/DualTypewriter";
+import { Typewriter } from "@/components/Typewriter";
 
 export default function events() {
     return (
@@ -17,18 +18,20 @@ export default function events() {
                         bottom="de eventos de marca"
                         colorTop={true}
                         color="text-red"
-                        className="uppercase font-bold text-4xl lg:text-6xl" 
+                        className="text-right uppercase font-bold text-4xl lg:text-6xl" 
                     />
-                    <p className="text-justify text-lg">
-                        Como parte del equipo de Brand Events en <strong>Ferragamo </strong> 
+                    <Typewriter 
+                        className="text-right text-lg"
+                        speed={0.003}
+                        text="Como parte del equipo de Brand Events en Ferragamo 
                         México, he liderado la planeación, ejecución y supervisión de
                         eventos de marca, asegurando una alineación estratégica
                         con los valores de la maison. Mi rol abarca desde la gestión de
                         proveedores y presupuestos, coordinación de diferentes
                         áreas, hasta la curaduría de experiencias premium,
                         involucrando activaciones, lanzamientos de colección y
-                        colaboraciones con medios y celebridades.
-                    </p>
+                        colaboraciones con medios y celebridades."
+                    />
                 </div>
             </div>
 

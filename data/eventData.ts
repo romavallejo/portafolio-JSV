@@ -33,7 +33,7 @@ export const eventsData: eventsDataInterface[] = [
         titleBottom: "Signorina",
         coloredTop: false,
         color: "red",
-        text: "Dentro de la presentación de la colección FW24 en Ciudad de México, por la noche se levó a cabo una cena privada en el rooftop de Polanco con celebridades y representantes de prensa para dar a conocer de forma exclusiva las fragancias Signorina y Red Leather. \nEsta experiencia íntima brindó la oportunidad de fortalecer la relación con key partners y medios clave, creando un ambiente de cercanía y sofisticación que complementó la narrativa del evento principal y amplificó la visibilidad de la marca ante audiencias estratégicas.",
+        text: "Dentro de la presentación de la colección FW24 en Ciudad de México, por la noche se llevó a cabo una cena privada en el rooftop de Polanco con celebridades y representantes de prensa para dar a conocer de forma exclusiva las fragancias Signorina y Red Leather. \nEsta experiencia íntima brindó la oportunidad de fortalecer la relación con key partners y medios clave, creando un ambiente de cercanía y sofisticación que complementó la narrativa del evento principal y amplificó la visibilidad de la marca ante audiencias estratégicas.",
         imgNum: 7,
     },
     {

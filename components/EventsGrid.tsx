@@ -10,7 +10,7 @@ const EventsGrid = ({ highlightPage = false, highlights = [0,1,2,3] }: EventsGri
     return (
         <div className="flex flex-col gap-5 p-12">
 
-            <h1 className="text-2xl font-bold">Eventos</h1>
+            <h1 className="text-4xl lg:text-6xl font-bold uppercase tracking-[2rem] text-center ">Eventos</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7'>
                 {highlightPage ? highlights.map(index =>

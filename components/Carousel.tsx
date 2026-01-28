@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import TextHighlight from '@/components/TextHighlight';
 import { eventSummaries } from '../data/eventsSummary'
 import { motion, AnimatePresence } from "framer-motion";
+import { image } from "motion/react-client";
 
 interface CarouselProps {
     images: number[] | string[],
@@ -38,6 +39,34 @@ const Carousel = ({ images, changable }: CarouselProps) => {
 
                 {/* IMAGE HOLDER */}
                 <div className="relative w-full max-w-225 aspect-13/9 overflow-hidden">
+
+                    {changable && 
+                        <>
+                            <motion.button 
+                                className="text-merge text-4xl font-extrabold mask-r-from-30% absolute w-[10%] h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
+                                initial={{ opacity: 0 }}
+                                whileHover={{
+                                    opacity: 1
+                                }}
+                                transition={{ duration: 0.25 }}
+                                onClick={()=>setImageIndex(imageIndex-1 < 0 ? total-1 : imageIndex-1)}
+                            >
+                                &lt;
+                            </motion.button>
+                            <motion.button 
+                                className="text-merge text-4xl font-extrabold mask-l-from-30% absolute w-[10%] right-0 h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
+                                initial={{ opacity: 0 }}
+                                whileHover={{
+                                    opacity: 1
+                                }}
+                                transition={{ duration: 0.25 }}
+                                onClick={()=>setImageIndex((imageIndex+1)%total)}
+                            >
+                                &gt;
+                            </motion.button>
+                        </>
+                    }
+
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={imageIndex}
@@ -91,12 +120,13 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 flex flex-col justify-center items-center gap-4 bg-black/75 backdrop-blur-xs p-16 z-100"
                     >
-                        <button 
-                            className="self-start"
+                        <motion.button
+                            whileHover={{ scale: 1.3}} 
+                            className="bg-red-light self-end hover:cursor-pointer"
                             onClick={()=>setIsActive(true)}
                         >
-                            <TextHighlight>x</TextHighlight>
-                        </button>
+                            f
+                        </motion.button>
                         <div className="relative w-[85vw] h-[85vh] max-w-[95vw] max-h-[85vh]">
                             <Image
                                 src={usingNumbers ? 

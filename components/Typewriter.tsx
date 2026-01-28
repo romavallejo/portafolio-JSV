@@ -4,26 +4,27 @@ import { HTMLMotionProps } from "framer-motion";
 
 interface TypewriterProps extends HTMLMotionProps<"p"> {
   text: string;
-  
+  speed?: number;
 }
 
-export const sentenceVariants: Variants = {
-  hidden: {},
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 }
-  }
-};
+export const Typewriter: React.FC<TypewriterProps> = ({ text, speed = 0.05,...rest }) => {
 
-export const letterVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { opacity: { duration: 0 } }
-  }
-};
+  const sentenceVariants: Variants = {
+    hidden: {},
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: speed }
+    }
+  };
 
-export const Typewriter: React.FC<TypewriterProps> = ({ text, ...rest }) => {
+  const letterVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { opacity: { duration: 0 } }
+    }
+  };
+
   const lines = text.split("\n");
   return (
     <motion.p
