@@ -6,7 +6,7 @@ import { eventSummaries } from '../data/eventsSummary'
 import { motion, AnimatePresence } from "framer-motion";
 
 interface CarouselProps {
-    images: number[],
+    images: number[] | string[],
     changable: boolean,
 }
 
@@ -14,6 +14,10 @@ const Carousel = ({ images, changable }: CarouselProps) => {
 
     if (!images || images.length === 0)
         return <div>No images available</div>;
+    
+    let usingNumbers = false;
+    if (typeof images[0] === "number")
+        usingNumbers = true
     
     const [imageIndex,setImageIndex] = useState(0);
     const[isActive,setIsActive] = useState(true);
@@ -33,7 +37,7 @@ const Carousel = ({ images, changable }: CarouselProps) => {
             <div className="flex flex-col items-center w-full">
 
                 {/* IMAGE HOLDER */}
-                <div className="relative w-full max-w-225 aspect-video overflow-hidden">
+                <div className="relative w-full max-w-225 aspect-13/9 overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={imageIndex}
@@ -44,8 +48,11 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                             className="absolute inset-0"
                         >
                         <Image
-                            src={eventSummaries[images[imageIndex]].image}
-                            alt={eventSummaries[images[imageIndex]].name}
+                            src={usingNumbers ? 
+                                `/images/${eventSummaries[images[imageIndex]].id}/${eventSummaries[images[imageIndex]].id}_0.jpg`
+                                : images[imageIndex]
+                            }
+                            alt="Imagen de evento"
                             fill
                             className="object-cover hover:cursor-pointer"
                             onClick={() => setIsActive(false)}
@@ -57,14 +64,14 @@ const Carousel = ({ images, changable }: CarouselProps) => {
 
                 {/* DOT INDICATORS */ }
                 {changable && 
-                    <div className="flex gap-3 pt-3">
+                    <div className="flex gap-3 pt-1.5 -mb-4.5">
                     {Array.from({length: total}, (_,index) => 
                         <motion.div 
                             key={index} 
                             className="h-3 w-3 bg-background rounded-2xl hover:cursor-pointer"
                             onClick={()=>setImageIndex(index)}
                             animate={{
-                                scale: index === imageIndex ? 1.4 : 1,
+                                scale: index === imageIndex ? 1.3 : 1,
                                 opacity: index === imageIndex ? 1 : 0.4
                             }}
                             transition={{ duration: 0.25 }}
@@ -92,8 +99,11 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                         </button>
                         <div className="relative w-[85vw] h-[85vh] max-w-[95vw] max-h-[85vh]">
                             <Image
-                                src={eventSummaries[images[imageIndex]].image}
-                                alt={eventSummaries[images[imageIndex]].name}
+                                src={usingNumbers ? 
+                                    `/images/${eventSummaries[images[imageIndex]].id}/${eventSummaries[images[imageIndex]].id}_0.jpg`
+                                    : images[imageIndex]
+                                }
+                                alt="Imagen de evento"
                                 fill
                                 style={{ objectFit: 'contain' }}
                             />

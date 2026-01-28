@@ -6,11 +6,15 @@
   --background-alt: #d7d7d7;
   --foreground: #0a0a0a;
   --foreground-alt: #2c2c2c;
-
   --foreground-background-merge: #d9d9d9;
-
   --red: #900b09;
   --red-light: #E08686;
+  --blue: #5673ae;
+  --brown: #664129;
+  --green: #6F7966;
+  --grey: #AFB9B1;
+  --yellow: #DFB36F;
+  --orange: #F19954;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +34,12 @@
   --color-merge: var(--foreground-background-merge);
   --color-red: var(--red);
   --color-red-light: var(--red-light);
+  --color-blue: var(--blue);
+  --color-brown: var(--brown);
+  --color-green: var(--green);
+  --color-grey: var(--grey);
+  --color-yellow: var(--yellow);
+  --color-orange: var(--orange);
 }
 
 body {

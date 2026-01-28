@@ -4,6 +4,7 @@ import { HTMLMotionProps } from "framer-motion";
 
 interface TypewriterProps extends HTMLMotionProps<"p"> {
   text: string;
+  
 }
 
 export const sentenceVariants: Variants = {

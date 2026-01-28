@@ -5,10 +5,9 @@ import * as motion from "motion/react-client"
 interface EventCardProps {
     id: number;
     name: string;
-    image: string;
 }
 
-const EventCard = ({ id, name, image }: EventCardProps) => {
+const EventCard = ({ id, name }: EventCardProps) => {
     return (
         <Link href={`/events/${id}`} className="h-full block">
             <motion.div
@@ -20,7 +19,7 @@ const EventCard = ({ id, name, image }: EventCardProps) => {
             >
                 <div className="relative w-full h-[250px] overflow-hidden rounded">
                     <Image 
-                        src={image}
+                        src={`/images/${id}/${id}_0.jpg`}
                         fill 
                         style={{objectFit: "cover"}}
                         alt={`Imagen de ${name}`}

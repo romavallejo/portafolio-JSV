@@ -18,14 +18,14 @@ const EventsGrid = ({ highlightPage = false, highlights = [0,1,2,3] }: EventsGri
                         key={index} 
                         id={index} 
                         name={eventSummaries[index].name} 
-                        image={eventSummaries[index].image}
+                        image={`/images/${eventSummaries[index].id}/${eventSummaries[index].id}_0.jpg`}
                     />
                 ) :  eventSummaries.map(event => 
                     <EventCard 
                         key={event.id} 
                         id={event.id} 
                         name={event.name} 
-                        image={event.image}
+                        image={`/images/${event.id}/${event.id}_0.jpg`}
                     />
                 )}
             </div>
