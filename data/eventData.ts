@@ -1,9 +1,11 @@
+import type { ColorName } from "@/utils/colorMap";
+
 interface eventsDataInterface {
     id: number;
     titleTop: string;
     titleBottom: string;
     coloredTop: boolean;
-    color: string;
+    color: ColorName;
     text: string;
     imgNum: number;
 }
