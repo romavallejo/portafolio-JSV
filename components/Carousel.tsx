@@ -7,7 +7,7 @@ import { AiFillCloseCircle, AiFillCaretLeft, AiFillCaretRight } from "react-icon
 
 
 interface CarouselProps {
-    images: number[] | string[],
+    images: string[],
     changable: boolean,
     aspectRatio?: string,
 }
@@ -25,10 +25,6 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
 
     if (!images || images.length === 0)
         return <div>No images available</div>;
-    
-    let usingNumbers = false;
-    if (typeof images[0] === "number")
-        usingNumbers = true
     
     const [imageIndex,setImageIndex] = useState(0);
     const[isActive,setIsActive] = useState(true);
@@ -92,10 +88,7 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                             className="absolute inset-0"
                         >
                         <Image
-                            src={usingNumbers ? 
-                                `/images/${eventSummaries[images[imageIndex]].id}/${eventSummaries[images[imageIndex]].id}_0.jpg`
-                                : images[imageIndex]
-                            }
+                            src={images[imageIndex]}
                             alt="Imagen de evento"
                             fill
                             className="object-cover hover:cursor-pointer"
@@ -145,10 +138,7 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
 
                         <div className="relative w-[90vw] h-[90vh] max-w-[95vw] max-h-[90vh]">
                             <Image
-                                src={usingNumbers ? 
-                                    `/images/${eventSummaries[images[imageIndex]].id}/${eventSummaries[images[imageIndex]].id}_0.jpg`
-                                    : images[imageIndex]
-                                }
+                                src={images[imageIndex]}
                                 alt="Imagen de evento"
                                 fill
                                 style={{ objectFit: 'contain' }}

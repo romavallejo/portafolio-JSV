@@ -6,12 +6,15 @@ import { Typewriter } from '@/components/Typewriter';
 import { DualTypewriter } from '@/components/DualTypewriter';
 
 export default function LandingPage() {
+
+  const displayImages = ['/images/2/2_0.jpg','/images/1/1_0.jpg','/images/3/3_0.jpg'];
+
   return (
     <>
       <div className="flex flex-col md:flex-row justify-evenly items-center p-14 bg-background-alt min-h-[calc(100vh-86px)]">
         
         <div className=" flex bg-red-light p-6 flex-1 max-w-[900px]">
-          <Carousel images={[2,1,3]} changable={false}/>
+          <Carousel images={displayImages} changable={false}/>
         </div>
 
         <div className="text-center md:text-right">

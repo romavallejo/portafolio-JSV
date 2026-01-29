@@ -4,12 +4,15 @@ import { DualTypewriter } from "@/components/DualTypewriter";
 import { Typewriter } from "@/components/Typewriter";
 
 export default function events() {
+
+    const displayImages = ['/images/11/11_0.jpg','/images/12/12_0.jpg','/images/13/13_0.jpg'];
+
     return (
         <>
             <div className="flex justify-evenly items-center flex-row-reverse gap-8 p-14 bg-background-alt min-h-[calc(100vh-86px)]">
 
                 <div className="flex justify-center flex-1">
-                    <Carousel images={[11,12,13]} changable={false}/>
+                    <Carousel images={displayImages} changable={false}/>
                 </div>
 
                 <div className="flex flex-col gap-2 flex-1">
