@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { eventsData } from "@/data/eventData";
-import { colorMap } from "@/data/colorMap";
+import { colorMap } from "@/utils/colorMap";
 import Carousel from "@/components/Carousel";
 import { DualTypewriter } from "@/components/DualTypewriter";
 import { Typewriter } from "@/components/Typewriter";
