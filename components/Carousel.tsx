@@ -2,16 +2,17 @@
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { eventSummaries } from '../data/eventsSummary'
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, aspectRatio } from "framer-motion";
 import { AiFillCloseCircle, AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 
 interface CarouselProps {
     images: number[] | string[],
     changable: boolean,
+    aspectRatio?: string,
 }
 
-const Carousel = ({ images, changable }: CarouselProps) => {
+const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
     const startInterval = () => {
@@ -52,7 +53,7 @@ const Carousel = ({ images, changable }: CarouselProps) => {
             <div className="flex flex-col items-center w-full">
 
                 {/* IMAGE HOLDER */}
-                <div className="relative w-full max-w-225 aspect-13/9 overflow-hidden">
+                <div className={"relative w-full max-w-225 aspect-13/9 overflow-hidden " + (aspectRatio ? aspectRatio : "aspect-13/9")}>
 
                     {(changable && isActive) && 
                         <>
@@ -142,7 +143,7 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                             <AiFillCloseCircle size={48} className="text-red-light"/>
                         </motion.button>
 
-                        <div className="relative w-[85vw] h-[85vh] max-w-[95vw] max-h-[85vh]">
+                        <div className="relative w-[90vw] h-[90vh] max-w-[95vw] max-h-[90vh]">
                             <Image
                                 src={usingNumbers ? 
                                     `/images/${eventSummaries[images[imageIndex]].id}/${eventSummaries[images[imageIndex]].id}_0.jpg`
@@ -152,33 +153,6 @@ const Carousel = ({ images, changable }: CarouselProps) => {
                                 fill
                                 style={{ objectFit: 'contain' }}
                             />
-                            {/* BUTTONS FOR CHANGING IMAGES BIG SCREEN*/ }
-                            {changable && 
-                                <>
-                                    <motion.button 
-                                        className="text-white text-4xl mask-l-from-30% absolute w-[10%] h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
-                                        initial={{ opacity: 0 }}
-                                        whileHover={{
-                                            opacity: 1
-                                        }}
-                                        transition={{ duration: 0.25 }}
-                                        onClick={()=>switchImage(imageIndex-1 < 0 ? total-1 : imageIndex-1)}
-                                    >
-                                        <AiFillCaretLeft />
-                                    </motion.button>
-                                    <motion.button 
-                                        className="text-white text-4xl mask-l-from-30% absolute w-[10%] right-0 h-full z-101 flex  justify-center items-center bg-black/70 hover:cursor-pointer"
-                                        initial={{ opacity: 0 }}
-                                        whileHover={{
-                                            opacity: 1
-                                        }}
-                                        transition={{ duration: 0.25 }}
-                                        onClick={()=>switchImage((imageIndex+1)%total)}
-                                    >
-                                        <AiFillCaretRight />
-                                    </motion.button>
-                                </>
-                            }
                         </div>
                     </motion.div>
                 }
