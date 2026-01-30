@@ -238,7 +238,7 @@ const Curriculum = () => {
                             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground tracking-widest text-xl z-10">
                                 100%
                             </div>
-                            <div className="bg-merge h-[28px] sm:h-full w-full rounded-lg"/>
+                            <div className="bg-merge h-7 sm:h-full w-full rounded-lg"/>
                         </div>
 
                     </div>
@@ -256,7 +256,7 @@ const Curriculum = () => {
                             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground tracking-widest text-xl z-10">
                                 40%
                             </div>
-                            <div className="bg-merge h-[28px] sm:h-full w-[40%] rounded-lg"/>
+                            <div className="bg-merge h-7 sm:h-full w-[40%] rounded-lg"/>
                         </div>
 
                     </div>
