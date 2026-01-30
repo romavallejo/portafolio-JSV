@@ -53,7 +53,6 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                     alt=""
                     width={1}
                     height={1}
-                    unoptimized
                     priority={i === 0} // first one extra important
                     />
                 ))}
