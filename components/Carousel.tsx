@@ -104,7 +104,7 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                             fill
                             className="object-cover hover:cursor-pointer"
                             onClick={() => setIsActive(false)}
-                            loading="eager"
+                            unoptimized
                         />
                         </motion.div>
                     </AnimatePresence>
