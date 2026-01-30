@@ -42,16 +42,23 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
         return () => {if(intervalRef.current) clearInterval(intervalRef.current)};
     },[isActive, total]);
 
-    //preload images
-    useEffect(() => {
-        images.forEach((src) => {
-            const img = new window.Image();
-            img.src = src;
-        });
-    }, [images]);
-
     return (
         <>
+            {/* ATTEMPT TO PRELOAD IMAGES */}
+            <div className="hidden">
+                {images.map((src, i) => (
+                    <Image
+                    key={i}
+                    src={src}
+                    alt=""
+                    width={1}
+                    height={1}
+                    unoptimized
+                    priority={i === 0} // first one extra important
+                    />
+                ))}
+            </div>
+
             {/* CAROUSEL HOLDER */}
             <div className="flex flex-col items-center w-full">
 
@@ -104,7 +111,7 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                             fill
                             className="object-cover hover:cursor-pointer"
                             onClick={() => setIsActive(false)}
-                            unoptimized
+                            loading="eager"
                         />
                         </motion.div>
                     </AnimatePresence>

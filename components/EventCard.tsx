@@ -17,7 +17,7 @@ const EventCard = ({ id, name }: EventCardProps) => {
                 transition={{duration: 0.4}}
                 whileHover={{scale: 1.05}}
             >
-                <div className="relative w-full h-[250px] overflow-hidden rounded">
+                <div className="relative w-full h-62.5 overflow-hidden rounded">
                     <Image 
                         src={`/images/${id}/${id}_0.jpg`}
                         fill 
