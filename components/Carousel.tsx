@@ -45,15 +45,15 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
     return (
         <>
             {/* ATTEMPT TO PRELOAD IMAGES */}
-            <div className="hidden">
+            <div className="fixed -z-10">
                 {images.map((src, i) => (
                     <Image
                     key={i}
                     src={src}
                     alt=""
-                    width={1}
-                    height={1}
-                    priority={i === 0} // first one extra important
+                    width={20}
+                    height={20}
+                    priority={true}
                     />
                 ))}
             </div>
