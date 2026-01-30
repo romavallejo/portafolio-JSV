@@ -94,7 +94,8 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                                     alt=""
                                     fill
                                     className="object-cover hover:cursor-pointer"
-                                    priority
+                                    onClick={() => setIsActive(false)}
+                                    preload={true}
                                 />
                             </motion.div>
                         ))}
