@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiFillCloseCircle, AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
-
 interface CarouselProps {
     images: string[],
     changable: boolean,
@@ -44,19 +43,6 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
 
     return (
         <>
-            {/* ATTEMPT TO PRELOAD IMAGES */}
-            <div className="fixed -z-10">
-                {images.map((src, i) => (
-                    <Image
-                    key={i}
-                    src={src}
-                    alt=""
-                    width={20}
-                    height={20}
-                    priority={true}
-                    />
-                ))}
-            </div>
 
             {/* CAROUSEL HOLDER */}
             <div className="flex flex-col items-center w-full">
@@ -95,25 +81,25 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                         </>
                     }
 
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={imageIndex}
-                            initial={{ opacity: 0, }}
-                            animate={{ opacity: 1, }}
-                            exit={{ opacity: 0,  }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                    <div className="absolute inset-0">
+                        {images.map((src, i) => (
+                            <motion.div
+                            key={i}
                             className="absolute inset-0"
-                        >
-                        <Image
-                            src={images[imageIndex]}
-                            alt="Imagen de evento"
-                            fill
-                            className="object-cover hover:cursor-pointer"
-                            onClick={() => setIsActive(false)}
-                            loading="eager"
-                        />
-                        </motion.div>
-                    </AnimatePresence>
+                            animate={{ opacity: i === imageIndex ? 1 : 0 }}
+                            transition={{ duration: 0.5 }}
+                            >
+                                <Image
+                                    src={src}
+                                    alt=""
+                                    fill
+                                    className="object-cover hover:cursor-pointer"
+                                    priority
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
+                    
                 </div>
 
                 {/* DOT INDICATORS */ }
