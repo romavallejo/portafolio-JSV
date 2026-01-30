@@ -2,9 +2,9 @@ const Curriculum = () => {
     return (
         <>
             {/************ EXPERIENCIA LABORAL SECTION ************/}
-            <div className="flex gap-4 text-lg">
+            <div className="flex flex-col md:flex-row gap-4 text-lg">
                 {/* NAME OF SECTION */}
-                <div className="font-bold flex-1 tracking-widest">
+                <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Experiencia Laboral
                 </div>
                 {/* PARTS OF SECTION */}
@@ -36,9 +36,9 @@ const Curriculum = () => {
             <hr className="border-foreground my-4"/>
 
             {/************ EDUCACION SECTION ************/}
-            <div className="flex gap-4 text-lg">
+            <div className="flex flex-col md:flex-row gap-4 text-lg">
                 {/* NAME OF SECTION */}
-                <div className="font-bold flex-1 tracking-widest">
+                <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Educación
                 </div>
                 {/* PARTS OF SECTION */}
@@ -91,9 +91,9 @@ const Curriculum = () => {
             <hr className="border-foreground my-4"/>
 
             {/************ CERTIFICACIONES SECTION ************/}
-            <div className="flex gap-4 text-lg">
+            <div className="flex flex-col md:flex-row gap-4 text-lg">
                 {/* NAME OF SECTION */}
-                <div className="font-bold flex-1 tracking-widest">
+                <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Certificaciones
                 </div>
                 {/* PARTS OF SECTION */}
@@ -146,9 +146,9 @@ const Curriculum = () => {
             <hr className="border-foreground my-4"/>
 
             {/************ RETOS SECTION ************/}
-            <div className="flex gap-4 text-lg">
+            <div className="flex flex-col md:flex-row gap-4 text-lg">
                 {/* NAME OF SECTION */}
-                <div className="font-bold flex-1 tracking-widest">
+                <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Retos
                 </div>
                 {/* PARTS OF SECTION */}
@@ -187,29 +187,29 @@ const Curriculum = () => {
             <hr className="border-foreground my-4"/>
 
             {/************ HABILIDADES SECTION ************/}
-            <div className="flex gap-4 text-lg">
+            <div className="flex flex-col md:flex-row gap-4 text-lg">
                 {/* NAME OF SECTION */}
-                <div className="font-bold flex-1 tracking-widest">
+                <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Habilidades
                 </div>
                 {/* PARTS OF SECTION */}
-                <div className="flex flex-5 font-medium text-foreground-alt">
+                <div className="flex flex-col sm:flex-row flex-5 font-medium text-foreground-alt">
                     <div className="flex-1">
-                        Compromiso<br/>
-                        Trabajo en equipo<br/>
-                        traducción<br/>
-                        Proactividad<br/>
-                        Persistencia<br/>
-                        Manejo de tiempo<br/>
-                        Adaptabilidad
+                        ● Compromiso<br/>
+                        ● Trabajo en equipo<br/>
+                        ● traducción<br/>
+                        ● Proactividad<br/>
+                        ● Persistencia<br/>
+                        ● Manejo de tiempo<br/>
+                        ● Adaptabilidad
                     </div>
                     <div className="flex-1">
-                        Trabajo bajo presión<br/>
-                        Mecanografía<br/>
-                        Comunicación oral y escrita<br/>
-                        Automanejo<br/>
-                        Responsabilidad<br/>
-                        Resolución de problemas
+                        ● Trabajo bajo presión<br/>
+                        ● Mecanografía<br/>
+                        ● Comunicación oral y escrita<br/>
+                        ● Automanejo<br/>
+                        ● Responsabilidad<br/>
+                        ● Resolución de problemas
                     </div>
                 </div>
             </div>
@@ -217,46 +217,48 @@ const Curriculum = () => {
             <hr className="border-foreground my-4"/>
 
             {/************ IDIOMAS SECTION ************/}
-            <div className="flex gap-4 text-lg">
+            <div className="flex flex-col md:flex-row gap-4 text-lg">
                 {/* NAME OF SECTION */}
-                <div className="font-bold flex-1 tracking-widest">
+                <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Idiomas
                 </div>
                 {/* PARTS OF SECTION */}
                 <div className="flex-5">
                     {/* SUBSECTION */}
-                    <div className="flex items-center">
-                        <div className="flex-1">
-                            <div className="font-bold">
-                                Inglés
-                            </div>
-                            <div className="pl-4">
-                                <div className="italic text-foreground-alt">
-                                    CAE
-                                </div>
-                            </div>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center sm:gap-6">
+    
+                        {/* LANGUAGE INFO */}
+                        <div className="w-40 shrink-0">
+                            <div className="font-bold">Inglés</div>
+                            <div className="pl-4 italic text-foreground-alt">CAE</div>
                         </div>
-                        <div className="flex-8 w-100% h-8 relative border-merge border-2 rounded-xl">
-                            <div className="absolute left-2 text-foreground tracking-widest text-xl">100%</div>
-                            <div className="bg-merge w-[100%] h-full rounded-lg"/>
+
+                        {/* PROGRESS BAR */}
+                        <div className="flex-1 w-full h-8 relative border-merge border-2 rounded-xl overflow-hidden">
+                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground tracking-widest text-xl z-10">
+                                100%
+                            </div>
+                            <div className="bg-merge h-[28px] sm:h-full w-full rounded-lg"/>
                         </div>
+
                     </div>
                     {/* SUBSECTION */}
-                    <div className="flex items-center">
-                        <div className="flex-1">
-                            <div className="font-bold">
-                                Mandarin
-                            </div>
-                            <div className="pl-4">
-                                <div className="italic text-foreground-alt">
-                                    HSK2
-                                </div>
-                            </div>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center sm:gap-6">
+    
+                        {/* LANGUAGE INFO */}
+                        <div className="w-40 shrink-0">
+                            <div className="font-bold">Mandarin</div>
+                            <div className="pl-4 italic text-foreground-alt">HSK2</div>
                         </div>
-                        <div className="flex-8 w-100% h-8 relative border-merge border-2 rounded-xl">
-                            <div className="absolute left-2 text-foreground tracking-widest text-xl">40%</div>
-                            <div className="bg-merge w-[40%] h-full rounded-lg"/>
+
+                        {/* PROGRESS BAR */}
+                        <div className="flex-1 w-full h-8 relative border-merge border-2 rounded-xl overflow-hidden">
+                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground tracking-widest text-xl z-10">
+                                40%
+                            </div>
+                            <div className="bg-merge h-[28px] sm:h-full w-[40%] rounded-lg"/>
                         </div>
+
                     </div>
                 </div>
             </div>

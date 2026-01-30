@@ -9,9 +9,9 @@ export default function events() {
 
     return (
         <>
-            <div className="flex justify-evenly items-center flex-row-reverse gap-8 p-14 bg-background-alt min-h-[calc(100vh-86px)]">
+            <div className="flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-14 bg-background-alt min-h-[calc(100vh-86px)]">
 
-                <div className="flex justify-center flex-1">
+                <div className="flex justify-center w-full lg:flex-1">
                     <Carousel images={displayImages} changable={false}/>
                 </div>
 
@@ -21,10 +21,10 @@ export default function events() {
                         bottom="de eventos de marca"
                         colorTop={true}
                         color="text-red"
-                        className="text-right uppercase font-bold text-4xl lg:text-6xl" 
+                        className="text-center lg:text-right uppercase font-bold text-2xl sm:text-4xl md:text-5xl xl:text-6xl" 
                     />
                     <Typewriter 
-                        className="text-right text-lg"
+                        className="text-justify lg:text-right text-lg"
                         speed={0.003}
                         text="Como parte del equipo de Brand Events en Ferragamo 
                         México, he liderado la planeación, ejecución y supervisión de

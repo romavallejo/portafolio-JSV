@@ -22,9 +22,9 @@ export default async function eventInfo({params}: {params: Promise<{ id: string 
         images.push(`/images/${event.id}/${event.id}_${i}.jpg`);
 
     return(
-        <div className={"flex justify-evenly items-center gap-8 p-14 min-h-[calc(100vh-86px)] " + (event.id % 2 != 0 ? "flex-row-reverse" : "")}>
+        <div className={"flex justify-evenly items-center flex-col gap-8 p-14 min-h-[calc(100vh-86px)] " + (event.id % 2 != 0 ? "lg:flex-row-reverse" : "lg:flex-row")}>
             <div 
-                className={"flex justify-center flex-1 p-6 "+ colorMap[event.color].bg}
+                className={"flex justify-center w-full lg:flex-1 p-6 "+ colorMap[event.color].bg}
             >
                 <Carousel 
                     images={images} 
@@ -38,10 +38,10 @@ export default async function eventInfo({params}: {params: Promise<{ id: string 
                     bottom={event.titleBottom}
                     colorTop={event.coloredTop}
                     color={colorMap[event.color].text ?? ""}
-                    className={"uppercase font-bold text-4xl lg:text-6xl " + (event.id % 2 != 0 ? "text-right" : "")}
+                    className={"uppercase font-bold text-2xl sm:text-4xl md:text-5xl xl:text-6xl text-center " + (event.id % 2 != 0 ? "lg:text-right" : "")}
                 />
                 <Typewriter 
-                    className={"text-lg " + (event.id % 2 != 0 ? "text-right" : "text-left")}
+                    className={"text-lg text-justify " + (event.id % 2 != 0 ? "lg:text-right" : "lg:text-left")}
                     text={event.text}
                     speed={0.003}
                 />

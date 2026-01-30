@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <footer>
             <nav>
-                <ul className="flex justify-center items-center gap-8 p-5 border-t-2 border-merge">
+                <ul className="flex  justify-center items-center gap-8 p-5 border-t-2 border-merge">
                     <li className='text-xl font-extrabold uppercase'><Link href="/">Jimena Santillana</Link></li>
                     <li><a href="https://www.instagram.com/jim.santi.val?igsh=cGJxdDc2MWoxbWpj" target="_blank" rel="noopener noreferrer">
                         <AiFillInstagram size={32} className='text-foreground'/>

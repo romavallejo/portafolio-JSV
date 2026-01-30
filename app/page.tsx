@@ -11,22 +11,22 @@ export default function LandingPage() {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-evenly items-center p-14 bg-background-alt min-h-[calc(100vh-86px)]">
+      <div className="flex gap-4 flex-col lg:flex-row justify-evenly items-center p-14 bg-background-alt min-h-[calc(100vh-86px)]">
         
-        <div className=" flex bg-red-light p-6 flex-1 max-w-[900px]">
+        <div className="bg-red-light p-6 w-full lg:flex-1 max-w-[900px]">
           <Carousel images={displayImages} changable={false}/>
         </div>
 
-        <div className="text-center md:text-right">
+        <div className="text-center lg:text-right">
           <DualTypewriter 
             top='Contruyendo'
             bottom='grandes proyectos'
-            className="text-4xl lg:text-6xl font-bold uppercase"
+            className="text-4xl md:text-5xl xl:text-6xl font-bold uppercase"
             colorTop={false}
             color='text-red'
           />
           <Typewriter 
-            className='text-2xl lg:text-4xl italic'
+            className='text-2xl md:text-3xl xl:text-4xl italic'
             text='Jimena Santillana Vallejo'/>
         </div>
 

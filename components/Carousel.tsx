@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { eventSummaries } from '../data/eventsSummary'
-import { motion, AnimatePresence, aspectRatio } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { AiFillCloseCircle, AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 
@@ -49,7 +49,11 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
             <div className="flex flex-col items-center w-full">
 
                 {/* IMAGE HOLDER */}
-                <div className={"relative w-full max-w-225 aspect-13/9 overflow-hidden " + (aspectRatio ? aspectRatio : "aspect-13/9")}>
+                <div
+                    className={`relative w-full max-w-225 overflow-hidden ${
+                        aspectRatio ?? "aspect-13/9"
+                    }`}
+                >
 
                     {(changable && isActive) && 
                         <>
