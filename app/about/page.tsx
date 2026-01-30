@@ -33,7 +33,7 @@ export default function about() {
         </div>
 
         {/* flex flex-col gap-5 p-12 */}
-        <div className="flex flex-col gap-5 p-12">
+        <div className="flex flex-col gap-5 p-6 md:p-12">
             <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold uppercase tracking-[10px] sm:tracking-[1rem] md:tracking-[2rem] text-center">Perfil Profesional</h1>
             <div className="fborder-2 border-merge shadow-md p-6">
                 <Curriculum />

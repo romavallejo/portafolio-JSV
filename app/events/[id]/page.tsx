@@ -38,7 +38,7 @@ export default async function eventInfo({params}: {params: Promise<{ id: string 
                     bottom={event.titleBottom}
                     colorTop={event.coloredTop}
                     color={colorMap[event.color].text ?? ""}
-                    className={"uppercase font-bold text-2xl sm:text-4xl md:text-5xl xl:text-6xl text-center " + (event.id % 2 != 0 ? "lg:text-right" : "")}
+                    className={"uppercase font-bold text-2xl sm:text-4xl md:text-5xl xl:text-6xl text-center " + (event.id % 2 != 0 ? "md:text-right" : "md:text-left")}
                 />
                 <Typewriter 
                     className={"text-lg text-justify " + (event.id % 2 != 0 ? "lg:text-right" : "lg:text-left")}

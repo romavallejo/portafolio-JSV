@@ -1,7 +1,6 @@
 'use client'
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
-import { eventSummaries } from '../data/eventsSummary'
 import { motion, AnimatePresence } from "framer-motion";
 import { AiFillCloseCircle, AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 

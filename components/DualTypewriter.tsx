@@ -38,8 +38,6 @@ export const DualTypewriter: React.FC<TypewriterProps> = ({ top, bottom, colorTo
     runSequence();
   }, [top, bottom, topControls, bottomControls]);
 
-  console.log(color);
-
   return (
     <div>
       <motion.p

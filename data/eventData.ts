@@ -116,7 +116,7 @@ export const eventsData: eventsDataInterface[] = [
         titleBottom: "Experience",
         coloredTop: true,
         color: "orange",
-        text: "Para la temporada del Día del Padre se creó un espacio exclusivo: el Tramezza Red Room, un montaje dedicado a destacar la herencia artesanal de la marca mediante una exhibición de herramientas y procesos de confección. \nComo parte de esta experiencia, losclientes pudieron personalizar hormas de zapatos con sus iniciales, gracias a un grabador profesional, ofreciendo así un detalle único y significativo para regalar en esta fecha tan especial. \nLa experiencia principal se realizó en PDH Polanco, BTQ Monterrey y BTQ Iguatemi, mientras que una versión adaptada se implementó en PDH Perisur, PDH Puebla, PDH Querétaro, PDH Santa Fe y BTQ Artz.",
+        text: "Para la temporada del Día del Padre se creó un espacio exclusivo: el Tramezza Red Room, un montaje dedicado a destacar la herencia artesanal de la marca mediante una exhibición de herramientas y procesos de confección. \nComo parte de esta experiencia, los clientes pudieron personalizar hormas de zapatos con sus iniciales, gracias a un grabador profesional, ofreciendo así un detalle único y significativo para regalar en esta fecha tan especial. \nLa experiencia principal se realizó en PDH Polanco, BTQ Monterrey y BTQ Iguatemi, mientras que una versión adaptada se implementó en PDH Perisur, PDH Puebla, PDH Querétaro, PDH Santa Fe y BTQ Artz.",
         imgNum: 7,
     },
     {
