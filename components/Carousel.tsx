@@ -135,7 +135,7 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 flex flex-col justify-center items-center gap-4 bg-black/75 backdrop-blur-xs p-16 z-100"
+                        className="fixed inset-0 flex flex-col justify-center items-center gap-4 bg-black/75 backdrop-blur-xs p-16 z-999"
                     >
                         <motion.button
                             whileHover={{ scale: 1.3}} 
