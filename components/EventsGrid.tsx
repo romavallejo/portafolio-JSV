@@ -8,7 +8,7 @@ interface EventsGridProps {
 
 const EventsGrid = ({ highlightPage = false, highlights = [0,1,2,3] }: EventsGridProps) => {
     return (
-        <div className="flex flex-col gap-5 p-12">
+        <div className="flex flex-col gap-5 p-6 sm:p-12">
 
             <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold uppercase tracking-[1rem] md:tracking-[2rem] text-center">Eventos</h1>
 

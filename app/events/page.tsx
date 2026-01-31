@@ -9,7 +9,7 @@ export default function events() {
 
     return (
         <>
-            <div className="flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-14 bg-background-alt min-h-[calc(100vh-86px)]">
+            <div className="flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-6 sm:p-16 bg-background-alt min-h-[calc(100vh-86px)]">
 
                 <div className="flex justify-center w-full lg:flex-1">
                     <Carousel images={displayImages} changable={false}/>

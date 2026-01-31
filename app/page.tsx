@@ -11,9 +11,9 @@ export default function LandingPage() {
 
   return (
     <>
-      <div className="flex gap-4 flex-col lg:flex-row justify-evenly items-center p-8 bg-background-alt min-h-[calc(100vh-86px)]">
+      <div className="flex gap-4 flex-col lg:flex-row justify-evenly items-center p-8 bg-background-alt sm:min-h-[calc(100vh-86px)]">
         
-        <div className="bg-red-light p-6 w-full lg:flex-1 max-w-225">
+        <div className="bg-red-light p-4 sm:p-6 w-full lg:flex-1 max-w-225">
           <Carousel images={displayImages} changable={false}/>
         </div>
 

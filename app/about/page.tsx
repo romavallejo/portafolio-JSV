@@ -7,7 +7,7 @@ export default function about() {
     return (
         <>
 
-        <div className="flex justify-evenly items-center flex-col lg:flex-row gap-8 p-14 bg-background-alt min-h-[calc(100vh-86px)]">
+        <div className="flex justify-evenly items-center flex-col lg:flex-row gap-8 p-6 sm:p-16 bg-background-alt min-h-[calc(100vh-86px)]">
             <div className="flex justify-center  max-w-100 lg:max-w-full w-full lg:flex-1 bg-red-light p-6 m-6">
                 <Carousel 
                     images={['/images/profilePicture.jpeg']} 
