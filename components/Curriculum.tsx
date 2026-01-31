@@ -1,8 +1,30 @@
+"use client"
+import { Typewriter } from "./Typewriter";
+import { motion } from "framer-motion";
+
 const Curriculum = () => {
     return (
         <>
+        <motion.h1 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1}}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold uppercase tracking-[10px] sm:tracking-[1rem] md:tracking-[2rem] text-center"
+        >
+            Perfil Profesional
+        </motion.h1>
+
+        <div className="fborder-2 border-merge shadow-md p-6">
+
             {/************ EXPERIENCIA LABORAL SECTION ************/}
-            <div className="flex flex-col md:flex-row gap-4 text-lg">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1}}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col md:flex-row gap-4 text-lg"
+            >
                 {/* NAME OF SECTION */}
                 <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Experiencia Laboral
@@ -31,12 +53,18 @@ const Curriculum = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <hr className="border-foreground my-4"/>
 
             {/************ EDUCACION SECTION ************/}
-            <div className="flex flex-col md:flex-row gap-4 text-lg">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1}}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col md:flex-row gap-4 text-lg"
+            >
                 {/* NAME OF SECTION */}
                 <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Educación
@@ -86,12 +114,18 @@ const Curriculum = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <hr className="border-foreground my-4"/>
 
             {/************ CERTIFICACIONES SECTION ************/}
-            <div className="flex flex-col md:flex-row gap-4 text-lg">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1}}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col md:flex-row gap-4 text-lg"
+            >
                 {/* NAME OF SECTION */}
                 <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Certificaciones
@@ -141,12 +175,18 @@ const Curriculum = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <hr className="border-foreground my-4"/>
 
             {/************ RETOS SECTION ************/}
-            <div className="flex flex-col md:flex-row gap-4 text-lg">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1}}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col md:flex-row gap-4 text-lg"
+            >
                 {/* NAME OF SECTION */}
                 <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Retos
@@ -182,12 +222,18 @@ const Curriculum = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <hr className="border-foreground my-4"/>
 
             {/************ HABILIDADES SECTION ************/}
-            <div className="flex flex-col md:flex-row gap-4 text-lg">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1}}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col md:flex-row gap-4 text-lg"
+            >
                 {/* NAME OF SECTION */}
                 <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Habilidades
@@ -212,12 +258,18 @@ const Curriculum = () => {
                         ● Resolución de problemas
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <hr className="border-foreground my-4"/>
 
             {/************ IDIOMAS SECTION ************/}
-            <div className="flex flex-col md:flex-row gap-4 text-lg">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1}}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col md:flex-row gap-4 text-lg"
+            >
                 {/* NAME OF SECTION */}
                 <div className="font-bold tracking-widest md:basis-56 md:flex-none">
                     Idiomas
@@ -261,8 +313,8 @@ const Curriculum = () => {
 
                     </div>
                 </div>
-            </div>
-
+            </motion.div>
+        </div>
         </>
     );
 };

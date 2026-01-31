@@ -45,7 +45,12 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
         <>
 
             {/* CAROUSEL HOLDER */}
-            <div className="flex flex-col items-center w-full">
+            <motion.div 
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col items-center w-full"
+            >
 
                 {/* IMAGE HOLDER */}
                 <div
@@ -121,7 +126,7 @@ const Carousel = ({ images, changable, aspectRatio }: CarouselProps) => {
                     )}
                 </div>
                 }
-            </div>
+            </motion.div>
 
             {/* FULLSCREEN MODAL FOR IMAGE */}
             <AnimatePresence>

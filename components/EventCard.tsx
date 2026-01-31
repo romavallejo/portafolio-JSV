@@ -11,11 +11,11 @@ const EventCard = ({ id, name }: EventCardProps) => {
     return (
         <Link href={`/events/${id}`} className="h-full block">
             <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1}}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 className="h-full p-7 border border-merge rounded-xl"
-                initial={{opacity: 0, scale: 0}}
-                animate={{opacity: 1, scale: 1}}
-                transition={{duration: 0.4}}
-                whileHover={{scale: 1.05}}
             >
                 <div className="relative w-full h-62.5 overflow-hidden rounded">
                     <Image 
