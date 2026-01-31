@@ -10,7 +10,7 @@ const SideNavegationBar = () => {
         <nav className='block sm:hidden'>
             
             <ul className="flex justify-center items-center gap-8 p-5 border-b-2 border-merge">
-                <li className='text-3xl ml-7 mr-auto font-extrabold uppercase'><Link href="/">Jimena Santillana</Link></li>
+                <li className='text-3xl mr-auto font-extrabold uppercase'><Link href="/">Jimena Santillana</Link></li>
                 <li className='text-3xl font-extrabold uppercase'>
                     <button 
                         className='flex items-center'
