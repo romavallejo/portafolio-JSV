@@ -1,30 +1,13 @@
 "use client"
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 interface AnimatedBackgroundProps {
   positionRight?: boolean
 }
 
 const AnimatedBackground = ({ positionRight = true }: AnimatedBackgroundProps) => {
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
-  useEffect(() => {
-    const media = window.matchMedia("(min-width: 1024px)"); // Tailwind lg
-    const listener = () => setIsLargeScreen(media.matches);
-
-    listener(); // set on mount
-    media.addEventListener("change", listener);
-
-    return () => media.removeEventListener("change", listener);
-  }, []);
-
-  // 💡 Position logic
-  const position = isLargeScreen
-    ? positionRight
-      ? "right center"
-      : "left center"
-    : "center top"; // mobile layout glow
+  const position = positionRight ? "right center" : "left center";
 
   return (
     <motion.div
@@ -36,9 +19,14 @@ const AnimatedBackground = ({ positionRight = true }: AnimatedBackgroundProps) =
           transparent 60%
         )`,
         backgroundRepeat: "no-repeat",
+        opacity: 0.25,
       }}
       animate={{
-        backgroundSize: ["100% 100%", "120% 120%", "100% 100%"],
+        backgroundSize: [
+          "100% 100%",
+          "120% 120%",
+          "100% 100%",
+        ],
         opacity: [0.14, 0.22, 0.14],
       }}
       transition={{
