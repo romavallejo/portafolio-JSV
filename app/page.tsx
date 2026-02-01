@@ -4,6 +4,7 @@ import TextHighlight from '@/components/TextHighlight';
 import Carousel from '@/components/Carousel';
 import { Typewriter } from '@/components/Typewriter';
 import { DualTypewriter } from '@/components/DualTypewriter';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function LandingPage() {
 
@@ -11,13 +12,16 @@ export default function LandingPage() {
 
   return (
     <>
-      <div className="flex gap-4 flex-col lg:flex-row justify-evenly items-center p-8 bg-background-alt sm:min-h-[calc(100vh-86px)]">
+
+      <AnimatedBackground />
+
+      <div className="flex gap-4 flex-col lg:flex-row justify-evenly items-center p-8 sm:min-h-[calc(100vh-86px)]">
         
-        <div className="bg-red-light p-4 sm:p-6 w-full lg:flex-1 max-w-225">
+        <div className="bg-red-light p-4 sm:p-6 w-full lg:flex-1 max-w-225 z-10">
           <Carousel images={displayImages} changable={false}/>
         </div>
 
-        <div className="text-center lg:text-right">
+        <div className="text-center lg:text-right z-10">
           <DualTypewriter 
             top='Contruyendo'
             bottom='grandes proyectos'

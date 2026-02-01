@@ -2,6 +2,7 @@ import EventsGrid from "@/components/EventsGrid";
 import Carousel from "@/components/Carousel";
 import { DualTypewriter } from "@/components/DualTypewriter";
 import { Typewriter } from "@/components/Typewriter";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 export default function events() {
 
@@ -9,13 +10,14 @@ export default function events() {
 
     return (
         <>
-            <div className="flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-6 sm:p-16 bg-background-alt min-h-[calc(100vh-86px)]">
+            <AnimatedBackground />
+            <div className="flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-6 sm:p-16 min-h-[calc(100vh-86px)]">
 
-                <div className="flex justify-center w-full lg:flex-1">
+                <div className="flex justify-center w-full lg:flex-1 z-10">
                     <Carousel images={displayImages} changable={false}/>
                 </div>
 
-                <div className="flex flex-col gap-2 flex-1">
+                <div className="flex flex-col gap-2 flex-1 z-10">
                     <DualTypewriter 
                         top="Coordinación estratégica" 
                         bottom="de eventos de marca"
