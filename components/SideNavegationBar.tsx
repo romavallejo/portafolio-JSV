@@ -23,7 +23,7 @@ const SideNavegationBar = () => {
 
             { isSideNavOpen &&
             
-            <div className="fixed h-screen inset-0 bg-background/90 backdrop-blur-sm p-16 z-100">
+            <div className="fixed h-screen inset-0 bg-background/90 backdrop-blur-sm p-16">
                 <ul className="flex flex-col items-center justify-center gap-8 p-5">
                     <button
                         className='flex items-center'

@@ -13,15 +13,15 @@ export default function LandingPage() {
   return (
     <>
 
-      <AnimatedBackground />
+      
 
-      <div className="flex gap-4 flex-col lg:flex-row justify-evenly items-center p-8 sm:min-h-[calc(100vh-86px)]">
-        
-        <div className="bg-red-light p-4 sm:p-6 w-full lg:flex-1 max-w-225 z-10">
+      <div className="relative overflow flex gap-4 flex-col lg:flex-row justify-evenly items-center p-8 min-h-[calc(100vh-86px)]">
+        <AnimatedBackground />
+        <div className="bg-red-light p-4 sm:p-6 w-full lg:flex-1 max-w-225 ">
           <Carousel images={displayImages} changable={false}/>
         </div>
 
-        <div className="text-center lg:text-right z-10">
+        <div className="text-center lg:text-right">
           <DualTypewriter 
             top='Contruyendo'
             bottom='grandes proyectos'

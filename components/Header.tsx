@@ -26,7 +26,7 @@ const Header = () => {
                 opacity: hidden ? 0 : 1,
             }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className='sticky top-0 bg-background/90 backdrop-blur-lg z-998'
+            className='sticky top-0 bg-background/90 backdrop-blur-lg z-10'
         >
             <nav className='hidden sm:block'>
                 <ul className="flex justify-center items-center gap-8 p-5 border-b-2 border-merge">

@@ -10,14 +10,14 @@ export default function events() {
 
     return (
         <>
-            <AnimatedBackground />
-            <div className="flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-6 sm:p-16 min-h-[calc(100vh-86px)]">
-
-                <div className="flex justify-center w-full lg:flex-1 z-10">
+            
+            <div className="relative overflow flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-6 sm:p-16 min-h-[calc(100vh-86px)]">
+                <AnimatedBackground />
+                <div className="flex justify-center w-full lg:flex-1">
                     <Carousel images={displayImages} changable={false}/>
                 </div>
 
-                <div className="flex flex-col gap-2 flex-1 z-10">
+                <div className="flex flex-col gap-2 flex-1">
                     <DualTypewriter 
                         top="Coordinación estratégica" 
                         bottom="de eventos de marca"

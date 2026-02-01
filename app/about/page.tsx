@@ -7,9 +7,10 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 export default function about() {
     return (
         <>
-        <AnimatedBackground positionRight={false} />
-        <div className="flex justify-evenly items-center flex-col lg:flex-row gap-8 p-6 sm:p-16 min-h-[calc(100vh-86px)]">
-            <div className="flex justify-center  max-w-100 lg:max-w-full w-full lg:flex-1 bg-red-light p-6 m-6 z-10">
+        
+        <div className="relative overflow flex justify-evenly items-center flex-col lg:flex-row gap-8 p-6 sm:p-16 min-h-[calc(100vh-86px)]">
+            <AnimatedBackground positionRight={false} />
+            <div className="flex justify-center  max-w-100 lg:max-w-full w-full lg:flex-1 bg-red-light p-6 m-6">
                 <Carousel 
                     images={['/images/profilePicture.jpeg']} 
                     changable={false}
@@ -17,7 +18,7 @@ export default function about() {
                 />
             </div>
 
-            <div className="flex flex-col gap-2 flex-2 z-10">
+            <div className="flex flex-col gap-2 flex-2">
                 <DualTypewriter 
                     top="Sobre mi" 
                     bottom="Jimena Santillana Vallejo"
