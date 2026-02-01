@@ -12,7 +12,14 @@ export default function events() {
         <>
             
             <div className="relative overflow flex justify-evenly items-center flex-col lg:flex-row-reverse gap-8 p-6 sm:p-16 min-h-[calc(100vh-86px)]">
-                <AnimatedBackground />
+                <AnimatedBackground 
+                    start={false}
+                    className='hidden lg:block absolute inset-0 z-0 pointer-events-none'
+                />
+                <AnimatedBackground 
+                    horizontal={false}
+                    className='lg:hidden absolute inset-0 z-0 pointer-events-none'
+                />
                 <div className="flex justify-center w-full lg:flex-1">
                     <Carousel images={displayImages} changable={false}/>
                 </div>

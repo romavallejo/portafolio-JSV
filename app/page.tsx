@@ -16,7 +16,15 @@ export default function LandingPage() {
       
 
       <div className="relative overflow flex gap-4 flex-col lg:flex-row justify-evenly items-center p-8 min-h-[calc(100vh-86px)]">
-        <AnimatedBackground />
+        <AnimatedBackground 
+          start={false}
+          className='hidden lg:block absolute inset-0 z-0 pointer-events-none'
+        />
+        <AnimatedBackground 
+          horizontal={false}
+          start={false}
+          className='lg:hidden absolute inset-0 z-0 pointer-events-none'
+        />
         <div className="bg-red-light p-4 sm:p-6 w-full lg:flex-1 max-w-225 ">
           <Carousel images={displayImages} changable={false}/>
         </div>

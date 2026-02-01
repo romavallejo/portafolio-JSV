@@ -1,19 +1,20 @@
 "use client"
 import { motion } from "framer-motion";
+import { HTMLMotionProps } from "framer-motion";
 
-interface AnimatedBackgroundProps {
-  positionRight?: boolean
+interface AnimatedBackgroundProps extends HTMLMotionProps<"div"> {
+  horizontal?: boolean;
+  start?: boolean;
 }
 
-const AnimatedBackground = ({ positionRight = true }: AnimatedBackgroundProps) => {
+const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ horizontal = true, start = true, ...rest }: AnimatedBackgroundProps) => {
 
-  const position = positionRight ? "right center" : "left center";
+  const position = horizontal ? (start ? "left center" : "right center") : (start ? "top center" : "bottom center");
 
   return (
     <motion.div
-      className="absolute inset-0 z-0 pointer-events-none"
       style={{
-        background: `radial-gradient(
+        backgroundImage: `radial-gradient(
           circle at ${position},
           var(--red) 0%,
           transparent 60%
@@ -22,11 +23,7 @@ const AnimatedBackground = ({ positionRight = true }: AnimatedBackgroundProps) =
         opacity: 0.25,
       }}
       animate={{
-        backgroundSize: [
-          "100% 100%",
-          "120% 120%",
-          "100% 100%",
-        ],
+        backgroundSize: ["100% 100%", "120% 120%", "100% 100%"],
         opacity: [0.14, 0.22, 0.14],
       }}
       transition={{
@@ -34,6 +31,7 @@ const AnimatedBackground = ({ positionRight = true }: AnimatedBackgroundProps) =
         repeat: Infinity,
         ease: "easeInOut",
       }}
+      {...rest}
     />
   );
 };
